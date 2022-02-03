@@ -3,19 +3,13 @@
 
 ### Steps to reproduce:
 
-1. Set correct package name, applicationId. Set **appId** in **build.gradle.kts** and **build.gradle** **firebaseAppDistribution** block to match your firebase console project release and debug ids.
+1. Set correct package name, applicationId. Set **appId** in **build.gradle.kts**  **firebaseAppDistribution** block to match your firebase console project release and debug ids.
 
 2. Login with `gradlew appDistributionLogin`, set **FIREBASE_TOKEN** terminal variable.
 
-3. Use **build.gradle** file for build.
+3. Use **build.gradle.kts** file for build
 
-4. Run `gradlew assembleRelease appDistributionUploadRelease`. Verify successful distribution. 
-
-5. Run `gradlew assembleDebug appDistributionUploadDebug`. Verify successful distribution. 
-
-6. Use **build.gradle.kts** file for build
-
-7. Run `gradlew assembleRelease appDistributionUploadRelease`. Verify distribution error:
+4. Run `gradlew assembleRelease appDistributionUploadRelease`. Verify distribution error:
 
    ```
    App Distribution failed to process the APK: There's been an error processing your upload. 
@@ -24,9 +18,9 @@
    If a Firebase app already exists for 'com.example.yourapp', upload your APK to that Firebase app instead.
    ```
 
-8. Run `gradlew assembleDebug appDistributionUploadDebug`. Verify successful distribution. 
+5. Run `gradlew assembleDebug appDistributionUploadDebug`. Verify successful distribution. 
 
-9. Swap release and debug blocks in **build.gradle.kts**. Run steps 7-8. Verify that error now occurs in debug build:
+6. Swap release and debug blocks in **build.gradle.kts**. Run steps 4-5. Verify that error now occurs in debug build:
 
    ```
    App Distribution failed to process the APK: There's been an error processing your upload. 
